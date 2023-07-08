@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Filter.module.css';
+import PropTypes from 'prop-types';
 
 export const Filter = ({ value, changeFilter }) => (
   <label className={css.labelFilter}>
@@ -12,3 +13,7 @@ export const Filter = ({ value, changeFilter }) => (
     />
   </label>
 );
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+};

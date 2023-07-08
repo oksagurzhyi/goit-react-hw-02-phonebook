@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './ContactList.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, onDelete }) => {
   const totalNumberOfContacts = contacts.length;
@@ -23,4 +24,8 @@ export const ContactList = ({ contacts, onDelete }) => {
   ) : (
     <p>There are no contacts in your phonebook!</p>
   );
+};
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
