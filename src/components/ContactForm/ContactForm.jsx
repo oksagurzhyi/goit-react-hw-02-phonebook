@@ -10,15 +10,16 @@ export class ContactForm extends Component {
   };
 
   handleChange = event => {
-    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
+    console.log(event.currentTarget);
+    const { name, value } = event.currentTarget;
+    this.setState({ [name]: value });
   };
 
   onSubmit = e => {
     e.preventDefault();
     this.props.addContact({
       id: nanoid(),
-      name: this.state.name,
-      number: this.state.number,
+      ...this.state,
     });
     this.setState({ name: '', number: '' });
   };
