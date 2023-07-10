@@ -50,8 +50,6 @@ export class App extends Component {
         style={{
           height: '100vh',
           display: 'flex',
-          flexDirection: 'column',
-          // justifyContent: 'center',
           alignItems: 'center',
           fontSize: 30,
           color: '#010101',
@@ -60,6 +58,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
 
         <ContactForm addContact={this.addContact} />
+        <h2> Contacts:</h2>
         <Filter value={filter} changeFilter={this.changeFilter} />
         <ContactList contacts={visibleContacts} onDelete={this.onDelete} />
       </div>
