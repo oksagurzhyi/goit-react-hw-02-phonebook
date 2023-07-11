@@ -10,16 +10,3 @@
   justify-content: space-between;
   font-size: 25px;
 }
-.btnDelete {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 80px;
-  height: 30px;
-  background-color: blue;
-  border: transparent;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
