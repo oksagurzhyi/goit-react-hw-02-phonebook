@@ -15,7 +15,7 @@ export const ContactList = ({ contacts, onDelete }) => {
       ))}
     </ul>
   ) : (
-    <p>There are no contacts in your phonebook!</p>
+    <p>There is no such contact in your phonebook!</p>
   );
 };
 ContactList.propTypes = {

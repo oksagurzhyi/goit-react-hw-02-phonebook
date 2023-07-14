@@ -4,6 +4,8 @@ import { nanoid } from 'nanoid';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
+const LS_KEY = 'phonebookContacts';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -14,6 +16,21 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(LS_KEY);
+    const contacts = JSON.parse(savedContacts);
+
+    this.setState({ contacts });
+    console.log(this.state.contacts);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+      console.log(this.state.contacts);
+    }
+  }
 
   addContact = newContact => {
     const isContactInPhonebook = this.state.contacts.some(
@@ -42,7 +59,7 @@ export class App extends Component {
 
     const normalizeName = filter.toLowerCase();
     const visibleContacts = contacts.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(normalizeName)
+      contact.name.toLowerCase().includes(normalizeName)
     );
 
     return (
