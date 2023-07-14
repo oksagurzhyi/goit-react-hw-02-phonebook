@@ -3,12 +3,12 @@ import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 import { Contact } from 'components/Contact/Contact';
 
-export const ContactList = ({ contacts, onDelete }) => {
+export const ContactList = ({ contacts, visibleContacts, onDelete }) => {
   const totalNumberOfContacts = contacts.length;
 
   return totalNumberOfContacts > 0 ? (
     <ul className={css.contactItems}>
-      {contacts.map(({ id, name, number }) => (
+      {visibleContacts.map(({ id, name, number }) => (
         <li key={id} className={css.contactItem}>
           <Contact name={name} number={number} onDelete={() => onDelete(id)} />
         </li>
